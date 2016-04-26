@@ -1,0 +1,40 @@
+<ion-view title="Partidas" hide-nav-bar="ctrl.algunoSeleccionado()" >
+
+    <ion-header-bar class="bar-stable" >
+        <div class="button-bar">
+            <button class="button button-clear" ng-click="ctrl.cancelar()">Cancelar</button>     
+            <button class="button button-clear">Finalizar</button>
+            <button class="button button-clear">Liberar</button>
+        </div>
+    </ion-header-bar>
+    <ion-content padding="false" class="has-header">
+        <!--<div>res:{{ctrl.algunoSeleccionado()}}</div>-->
+        <ion-list>
+            <ion-item ng-class="{'balanced-bg':avance.selected}" ng-repeat="avance in ctrl.avances">
+
+                <div class="row">
+                    <div class="col-10 col-center">
+                        <div class=" item-checkbox">
+                            <label class="checkbox checkbox-dark">
+                                <input type="checkbox" ng-model="avance.selected" />
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col col-center item-text-wrap">
+                        <h3>{{avance.partida}}</h3>
+                        <p>{{avance.subpartida}}</p>
+                    </div>
+                    
+                </div>
+                <div class="row">
+                    <div class="col col-offset-10 col-50 col-center">
+                        <p>{{avance.fecha_fin|| "Pendiente"}}</p>
+                    </div>
+                      <div class="col col-50 col-center">
+                        <p>{{avance.fecha_liberacion|| "Sin Liberar"}}</p>
+                    </div>
+                </div>
+            </ion-item>           
+        </ion-list>
+    </ion-content>
+</ion-view>

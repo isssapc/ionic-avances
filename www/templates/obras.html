@@ -1,0 +1,19 @@
+<ion-view title="Obras" hide-nav-bar="false" >
+    <!--<ion-header-bar> <div class="title">Header</div></ion-header-bar>-->
+<!--    <ion-header-bar class="bar-header bar-stable">
+        <button class="button button-stable button-outline">Liberar</button>
+        <div class="title">Herramientas</div>
+        <button class="button button-positive">Finalizar</button>
+    </ion-header-bar>-->
+    <ion-content padding="false" class="has-header">
+        <ion-refresher pulling-text="Actualizar..." on-refresh="ctrl.getObras(true)"></ion-refresher>
+
+        
+        <ion-list>
+            <ion-item class="item-icon-right" ui-sref="tabs.lotes({id_obra:obra.id_obra})" ng-repeat="obra in ctrl.obras">
+                {{obra.nombre}}
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>           
+        </ion-list>
+    </ion-content>
+</ion-view>
