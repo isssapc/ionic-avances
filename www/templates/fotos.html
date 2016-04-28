@@ -1,0 +1,13 @@
+<ion-view title="Fotos" >
+    <ion-content padding="false" class="has-header">        
+        <ion-list > 
+            <div class="list card" ng-repeat="imagen in ctrl.imagenes"  >
+                <div class="item">{{imagen.fecha|date:'fullDate'}}</div>
+                <div class="item item-body">
+                    <img class="full-image" ng-src="http://localhost:8000/controldeobras_api/{{imagen.url}}">
+                    <p>{{imagen.descripcion}}</p>
+                </div>
+            </div>
+        </ion-list>
+    </ion-content>
+</ion-view>

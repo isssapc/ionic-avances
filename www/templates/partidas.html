@@ -5,35 +5,69 @@
             <button class="button button-clear" ng-click="ctrl.cancelar()">Cancelar</button>     
             <button class="button button-clear">Finalizar</button>
             <button class="button button-clear">Liberar</button>
+            <button class="button button-clear" ng-click="ctrl.tomarFoto()">Foto</button>
         </div>
     </ion-header-bar>
     <ion-content padding="false" class="has-header">
-        <!--<div>res:{{ctrl.algunoSeleccionado()}}</div>-->
+        <!--<div>res:{{ctrl.algunoSeleccionado()}}</div>
+        <div class="card">
+            <div class="item item-image">
+                <img ng-src="{{ctrl.srcImage}}" /> 
+                <img ng-src="http://localhost:8000/controldeobras_api/public/imagenes/espanya.jpg" /> 
+            </div>
+        </div> -->
+
         <ion-list>
-            <ion-item ng-class="{'balanced-bg':avance.selected}" ng-repeat="avance in ctrl.avances">
+            <ion-item class="item-icon-right"  ng-class="{'balanced-bg':avance.selected}" ng-repeat="avance in ctrl.avances">
+
+                <!--  <ion-checkbox class="checkbox-light" ng-model="avance.selected" >
+                     <h3>{{avance.partida}}</h3>
+                     <p>{{avance.subpartida}}</p>
+                               </ion-checkbox> -->  
+
 
                 <div class="row">
-                    <div class="col-10 col-center">
-                        <div class=" item-checkbox">
-                            <label class="checkbox checkbox-dark">
-                                <input type="checkbox" ng-model="avance.selected" />
-                            </label>
-                        </div>
+                    <div class="col col-20 col-center ">
+                        <label class="checkbox checkbox-dark">                            
+                            <input type="checkbox" ng-model="avance.selected">
+                        </label>  
+                        <!--                    
+                                                                                                <ion-checkbox style="background-color: transparent; border-color: transparent;" ng-model="avance.selected" >
+                                                                                                    <h3>{{avance.partida}}</h3>
+                                                                                                     <p>{{avance.subpartida}}</p>
+                                                                                                 </ion-checkbox> -->
+
+
+
+
                     </div>
-                    <div class="col col-center item-text-wrap">
+                    <div  ui-sref="tabs.fotos"  class="col col-center">
+                        <!--                        <div class="">{{avance.fecha_fin|| "Pendiente"}}</div>
+                                                <div class="">{{avance.fecha_liberacion|| "Sin Liberar"}}</div>-->
+                        <!--<a ui-sref="tabs.fotos">-->   
                         <h3>{{avance.partida}}</h3>
-                        <p>{{avance.subpartida}}</p>
-                    </div>
-                    
+                        <p>{{avance.subpartida}}</p> 
+                        <!--                        </a>-->
+                        <span class="badge badge-positive">2016-05-28</span>
+                        <span class="badge badge-energized abajo">Sin Liberar</span>
+                        
+                      
+                    </div>                  
                 </div>
-                <div class="row">
-                    <div class="col col-offset-10 col-50 col-center">
-                        <p>{{avance.fecha_fin|| "Pendiente"}}</p>
-                    </div>
-                      <div class="col col-50 col-center">
-                        <p>{{avance.fecha_liberacion|| "Sin Liberar"}}</p>
-                    </div>
-                </div>
+                <!--                <div class='row'>
+                                    <div class="col col-offset-20">Pendiente</div>
+                                    <div class="col">Liberado</div>
+                                </div>-->
+
+                <i class="icon ion-images" ng-show="avance.selected"></i>
+                <!--       <div class="row">
+                          <div class="col col-offset-10 col-50 col-center">
+                              <p>{{avance.fecha_fin|| "Pendiente"}}</p>
+                          </div>
+                            <div class="col col-50 col-center">
+                              <p>{{avance.fecha_liberacion|| "Sin Liberar"}}</p>
+                          </div>
+                      </div> -->
             </ion-item>           
         </ion-list>
     </ion-content>

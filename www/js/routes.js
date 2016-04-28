@@ -38,6 +38,16 @@ angular.module('app.routes')
                             }
                         }
                     })
+                    
+                     .state('tabs.fotos', {
+                        url: '/fotos',
+                        views: {
+                            'tab-obras': {
+                                templateUrl: 'templates/fotos.html',
+                                controller: 'fotosCtrl as ctrl'
+                            }
+                        }
+                    })
 
                     .state('tabs.avances', {
                         url: '/avances/:id_lote',

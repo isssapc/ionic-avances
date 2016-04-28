@@ -2,7 +2,7 @@ angular.module('app.services')
 
         .factory('AvancesApi', ['$http', '$ionicLoading', function ($http, $ionicLoading) {
 
-                var url =  'http://176.32.230.47/softwarechiapas.com/controldeobras_api/index.php/'; // 'http://localhost:8000/controldeobras_api/index.php/';
+                var url = 'http://localhost:8000/controldeobras_api/index.php/';  //'http://176.32.230.47/softwarechiapas.com/controldeobras_api/index.php/'; // 'http://localhost:8000/controldeobras_api/index.php/';
 
                 function getObras() {
                     return $http.get(url + 'obras');
@@ -10,6 +10,10 @@ angular.module('app.services')
 
                 function getLotes(id_obra) {
                     return $http.get(url + 'obras/get_manzanas_lotes/' + id_obra);
+                }
+
+                function getImagenesLote(id_lote) {
+                    return $http.get(url + 'lotes/imagenes/' + id_lote);
                 }
 
                 function getAvances(id_lote) {
@@ -26,7 +30,8 @@ angular.module('app.services')
                 return {
                     getObras: getObras,
                     getLotes: getLotes,
-                    getAvances: getAvances
+                    getAvances: getAvances,
+                    getImagenesLote:getImagenesLote
                 };
 
             }]);

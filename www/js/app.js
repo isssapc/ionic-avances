@@ -1,5 +1,5 @@
 
-angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services', 'app.directives'])
+angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services', 'app.directives', 'ngCordova'])
 
         .run(function ($ionicPlatform) {
             $ionicPlatform.ready(function () {
@@ -14,7 +14,10 @@ angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services',
                     StatusBar.styleDefault();
                 }
             });
-        });
+        })
+        .config(['$ionicConfigProvider', function($ionicConfigProvider){
+            $ionicConfigProvider.tabs.position('bottom');
+        }]);
 
 angular.module('app.controllers', []);
 angular.module('app.routes', []);
